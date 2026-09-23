@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+@source '../**/*.blade.php';
+@source '../**/*.vue';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Segoe UI', sans-serif;
+    --color-brand-50: #eef2ff;
+    --color-brand-100: #e0e7ff;
+    --color-brand-200: #c7d2fe;
+    --color-brand-300: #a5b4fc;
+    --color-brand-400: #818cf8;
+    --color-brand-500: #6366f1;
+    --color-brand-600: #4f46e5;
+    --color-brand-700: #4338ca;
+    --color-brand-800: #3730a3;
+    --color-brand-900: #312e81;
+    --color-surface: #f8fafc;
+}
+
+@layer base {
+    html {
+        @apply text-slate-800 antialiased;
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+
+    body {
+        @apply bg-slate-100 text-slate-700;
+    }
+
+    ::selection {
+        @apply bg-brand-600 text-white;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-slate-300;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-slate-400;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        @apply accent-brand-600;
+    }
+}
+
+@layer components {
+    /* Cards ------------------------------------------------------------ */
+    .cmp-card {
+        @apply bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden;
+    }
+
+    .cmp-card-pad {
+        @apply p-4 lg:p-5;
+    }
+
+    .cmp-card-header {
+        @apply flex flex-wrap items-center gap-3 px-4 lg:px-5 py-3.5 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-white;
+    }
+
+    .cmp-card-title {
+        @apply text-sm font-bold text-slate-800;
+    }
+
+    .cmp-card-sub {
+        @apply text-xs text-slate-400;
+    }
+
+    /* Buttons ------------------------------------------------------------ */
+    .cmp-btn {
+        @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold transition-colors duration-150 select-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer whitespace-nowrap;
+    }
+
+    .cmp-btn-primary {
+        @apply bg-brand-600 text-white hover:bg-brand-700 shadow-sm;
+    }
+
+    .cmp-btn-secondary {
+        @apply bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 shadow-sm;
+    }
+
+    .cmp-btn-danger {
+        @apply bg-red-600 text-white hover:bg-red-700 shadow-sm;
+    }
+
+    .cmp-btn-ghost {
+        @apply text-slate-500 hover:text-slate-800 hover:bg-slate-100;
+    }
+
+    .cmp-btn-sm {
+        @apply px-2.5 py-1.5 text-xs;
+    }
+
+    /* Form controls ------------------------------------------------------ */
+    .cmp-input,
+    .cmp-select,
+    .cmp-textarea {
+        @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm placeholder:text-slate-400 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/25;
+    }
+
+    .cmp-select {
+        @apply cursor-pointer pr-9;
+    }
+
+    .cmp-label {
+        @apply block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1.5;
+    }
+
+    .cmp-hint {
+        @apply mt-1 text-xs text-slate-400;
+    }
+
+    /* Tables -------------------------------------------------------------- */
+    .cmp-table {
+        @apply w-full text-sm border-collapse;
+    }
+
+    .cmp-table thead th {
+        @apply px-4 py-3 text-left text-[11px] font-bold uppercase tracking-wider text-slate-500 bg-slate-50 border-b border-slate-200 whitespace-nowrap;
+    }
+
+    .cmp-table tbody td {
+        @apply px-4 py-3.5 border-b border-slate-100 align-middle;
+    }
+
+    .cmp-table tbody tr {
+        @apply transition-colors duration-100 hover:bg-brand-50/50;
+    }
+
+    .cmp-table tbody tr:nth-child(even) {
+        @apply bg-slate-50/40;
+    }
+
+    .cmp-table tbody tr:last-child td {
+        @apply border-b-0;
+    }
+
+    /* Toolbar / misc ------------------------------------------------------ */
+    .cmp-toolbar {
+        @apply flex flex-wrap items-center gap-2.5 px-4 lg:px-5 py-3.5 border-b border-slate-200;
+    }
+
+    .cmp-pill {
+        @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold;
+    }
+
+    .cmp-actions {
+        @apply flex items-center justify-end gap-2 whitespace-nowrap;
+    }
+
+    .cmp-empty {
+        @apply py-12 text-center text-sm text-slate-400;
+    }
+
+    .cmp-section {
+        @apply text-xs font-bold uppercase tracking-widest text-slate-400;
+    }
+
+    /* KPI card ------------------------------------------------------------ */
+    .cmp-kpi {
+        @apply bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden;
+    }
+
+    .cmp-kpi-accent {
+        @apply h-1 w-full;
+    }
+
+    .cmp-kpi-body {
+        @apply p-4 lg:p-5 flex flex-col gap-3;
+    }
+}
